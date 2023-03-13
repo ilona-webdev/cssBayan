@@ -83,19 +83,33 @@ h1 {
    cursor: pointer;
 }
 
-input:checked + label > .label-img {
-   transform: rotate(90deg);
-   transition: rotate 0.5s;
+input ~ .first-item {
+   max-height: 100vh;
 }
 
-input:checked ~ .collapsible-item-content {
+input:first-child ~ .first-item-content {
    max-height: 100vh;
    padding: 1em;
 }
 
-input:checked ~ .collapsible-item-content > .img-wrap {
+input:first-child ~ .first-item-content > .img-wrap {
    transform: scale(1);
-   transition: transform 0.5s ease-in;
+}
+
+input:hover + label > .label-img {
+   transform: rotate(90deg);
+   transition: rotate 1s;
+}
+input:hover ~ .collapsible-item-content,
+.collapsible-item-content:hover {
+   max-height: 100vh;
+   padding: 1em;
+}
+
+input:hover ~ .collapsible-item-content > .img-wrap,
+.collapsible-item-content:hover > .img-wrap {
+   transform: scale(1);
+   transition: transform 0.7s ease-in;
 }
 
 .img-wrap {
@@ -103,7 +117,7 @@ input:checked ~ .collapsible-item-content > .img-wrap {
    display: inline-block;
    margin: 0 auto;
    transform: scale(0.7);
-   transition: transform 0.5s ease-in;
+   transition: transform 1s ease-in;
 }
 
 .img-wrap img {
